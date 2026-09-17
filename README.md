@@ -178,5 +178,10 @@ No build step is required. After changing a file:
 
 Never commit API keys, `.env` files, personal drafts, or provider credentials to the repository.
 
+## License
+
+This project is available under the [MIT License](LICENSE).
+
+---
 
 Made by MOB.

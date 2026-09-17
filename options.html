@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings — Cut the Fluff</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="settings-page">
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark"><i></i><i></i><i></i></span><div><strong>Cut the Fluff</strong><small>Settings</small></div></div>
+      <span class="version">Version 1.4.0</span>
+    </div>
+
+    <header class="intro">
+      <p class="kicker">Make every word count</p>
+      <h1>Clear writing, on your terms.</h1>
+      <p>Choose your rewrite engine, tune the writing scan, and set up the shortcut that fits your workflow.</p>
+    </header>
+
+    <section class="shortcut-card" aria-labelledby="shortcut-heading">
+      <div class="shortcut-icon">⌨</div>
+      <div><h2 id="shortcut-heading">Keyboard shortcut</h2><p>Select text anywhere and rewrite it without opening the panel.</p></div>
+      <kbd id="shortcut-value">Alt + Shift + F</kbd>
+      <button id="open-shortcuts" class="secondary small" type="button">Change shortcut</button>
+    </section>
+
+    <section id="connection" class="card">
+      <div class="section-head"><div><h2>AI provider</h2><p>Requests go directly from this browser to the provider you choose.</p></div><span id="connection-state" class="pill">Not tested</span></div>
+      <div class="field">
+        <label for="provider">Provider</label>
+        <select id="provider">
+          <option value="anthropic">Anthropic</option>
+          <option value="openai">OpenAI</option>
+          <option value="gemini">Google Gemini</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label-row"><label for="api-key">API key</label><a id="key-link" href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key ↗</a></div>
+        <div class="secret-wrap"><input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your API key"><button id="reveal" type="button">Show</button></div>
+        <p class="help">Stored in Chrome’s local extension storage. Treat it like a password.</p>
+      </div>
+      <div class="field">
+        <label for="model">Model</label>
+        <select id="model"></select>
+        <input id="custom-model" class="hidden" type="text" spellcheck="false" placeholder="Enter an exact model ID">
+        <p id="model-help" class="help"></p>
+      </div>
+      <div class="actions"><button id="save" class="primary" type="button">Save settings</button><button id="test" class="secondary" type="button">Test connection</button><span id="save-status" role="status"></span></div>
+    </section>
+
+    <section id="scanning" class="card">
+      <div class="section-head"><div><h2>Writing-pattern scan</h2><p>Control how selective highlighting should be.</p></div></div>
+      <div class="range-head"><label for="sensitivity">Signal threshold</label><output id="sensitivity-val">45%</output></div>
+      <input id="sensitivity" type="range" min="20" max="80" step="5" value="45">
+      <div class="range-labels"><span>More highlights</span><span>Fewer highlights</span></div>
+      <div class="notice"><strong>Hybrid analysis, not an authorship verdict.</strong><p>When you enable scanning, bounded visible-text samples are checked locally and by your selected provider for formulaic structure, generic transitions and inflated wording. Human writing may trigger signals, and AI writing may not.</p></div>
+    </section>
+
+    <section id="privacy" class="card compact-card">
+      <div class="section-head"><div><h2>Privacy</h2><p>No developer-owned server sits between your browser and the provider.</p></div></div>
+      <div class="privacy-grid">
+        <article><strong>On demand</strong><p>Only the active tab is accessed when you use the extension.</p></article>
+        <article><strong>Direct requests</strong><p>Rewrites and enabled scans go to your chosen provider.</p></article>
+        <article><strong>Local settings</strong><p>Your key and preferences stay in this browser profile.</p></article>
+      </div>
+      <button id="clear-data" class="danger-link" type="button">Remove saved key and local data</button>
+    </section>
+
+    <footer class="product-footer">
+      <strong>Made by MOB</strong>
+      <nav aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></nav>
+    </footer>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
